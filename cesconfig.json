@@ -1,0 +1,39 @@
+{
+  "cesVersion": "2.12.2",
+  "projectName": "gabapp",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "stack"
+      }
+    },
+    {
+      "name": "nativewind",
+      "type": "styling"
+    },
+    {
+      "name": "firebase",
+      "type": "authentication"
+    }
+  ],
+  "flags": {
+    "noGit": false,
+    "noInstall": false,
+    "overwrite": false,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": true
+  },
+  "packageManager": {
+    "type": "npm",
+    "version": "10.1.0"
+  },
+  "os": {
+    "type": "Linux",
+    "platform": "linux",
+    "arch": "x64",
+    "kernelVersion": "5.15.167.4-microsoft-standard-WSL2"
+  }
+}
