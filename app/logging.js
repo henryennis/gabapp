@@ -7,10 +7,10 @@ const LoggingScreen = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [dataLog, setDataLog] = useState([]);
   const router = useRouter();
+  let recordingTimer;
 
   useEffect(() => {
     let accelerometerSubscription, gyroscopeSubscription, magnetometerSubscription;
-    let recordingTimer;
 
     if (isRecording) {
       setDataLog([]); // Reset data log on start
@@ -31,7 +31,7 @@ const LoggingScreen = () => {
         setDataLog((prevLog) => [...prevLog, { timestamp: Date.now(), type: "Magnetometer", ...data }]);
       });
 
-      // Stop after 6 minutes and navigate
+      // Stop automatically after 6 minutes
       recordingTimer = setTimeout(() => stopRecording(), 360000);
     }
 
@@ -48,9 +48,17 @@ const LoggingScreen = () => {
     router.push({ pathname: "/results", params: { data: JSON.stringify(dataLog) } });
   };
 
+  const toggleRecording = () => {
+    if (isRecording) {
+      stopRecording(); // Stop and navigate when manually stopped
+    } else {
+      setIsRecording(true);
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Button title={isRecording ? "Stop" : "Start"} onPress={() => setIsRecording(!isRecording)} />
+      <Button title={isRecording ? "Stop" : "Start"} onPress={toggleRecording} />
       <Text style={styles.text}>Logged Entries: {dataLog.length}</Text>
     </View>
   );
