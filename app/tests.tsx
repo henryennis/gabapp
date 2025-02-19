@@ -1,9 +1,11 @@
 import { View, Text } from "react-native";
 
-export default function SignInScreen() {
+const TestsScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Tests go here</Text>
+      <Text>Tests Screen</Text>
     </View>
   );
-}
+};
+
+export default TestsScreen;

@@ -3,7 +3,6 @@
     "name": "gabapp",
     "slug": "gabapp",
     "version": "1.0.0",
-
     "scheme": "gabapp",
     "web": {
       "bundler": "metro",
@@ -17,19 +16,21 @@
         {
           "launchMode": "most-recent"
         }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow $(PRODUCT_NAME) to access your device motion"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -40,10 +41,15 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "BODY_SENSORS"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yourcompany.gabapp"
+
     }
   }
 }
